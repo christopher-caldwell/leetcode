@@ -3,7 +3,6 @@ import { twoSum } from './index'
 describe('Two Sums', () => {
   test('nums = [2,7,11,15], target = 9', () => {
     const result = twoSum([2, 7, 11, 15], 9)
-    console.log('result', result)
     expect(result).toStrictEqual([0, 1])
   })
   test('nums = [3,2,4], target = 6', () => {
