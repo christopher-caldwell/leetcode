@@ -2,7 +2,8 @@
   "compilerOptions": {
     "lib": ["ES2017", "DOM"],
     "types": ["jest"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "downlevelIteration": true,
   },
   "include": ["./src"]
 }

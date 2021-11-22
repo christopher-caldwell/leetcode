@@ -1,34 +1,33 @@
-const symbolMap: Record<string, number> = {
-  I: 1,
-  V: 5,
-  X: 10,
-  L: 50,
-  C: 100,
-  D: 500,
-  M: 1000,
-}
-
-const irregularSymbols: [string, number][] = [
-  ['IV', 4],
-  ['IX', 9],
-  ['XL', 40],
-  ['XC', 90],
-  ['CD', 400],
-  ['CM', 900],
+const symbols: [RegExp, number][] = [
+  [new RegExp(/IV/), 4],
+  [new RegExp(/IX/), 9],
+  [new RegExp(/XL/), 40],
+  [new RegExp(/XC/), 90],
+  [new RegExp(/CD/), 400],
+  [new RegExp(/CM/), 900],
+  [new RegExp(/I/), 1],
+  [new RegExp(/V/), 5],
+  [new RegExp(/X/), 10],
+  [new RegExp(/L/), 50],
+  [new RegExp(/C/), 100],
+  [new RegExp(/D/), 500],
+  [new RegExp(/M/), 1000],
 ]
 
+/** My solution
+ * @speed 215 ms
+ * @memory 45 MB
+ */
 const romanToInt = (s: string): number => {
   let total = 0
-  irregularSymbols.forEach(([symbol, value]) => {
-    if (s.includes(symbol)) {
-      total += value
-      s = s.replace(symbol, '')
+  while (s.length) {
+    for (const symbolTuple of symbols) {
+      if (!s.length) break
+      if (symbolTuple[0].test(s)) {
+        total += symbolTuple[1]
+        s = s.replace(symbolTuple[0], '')
+      }
     }
-  })
-  s.split('').forEach(character => {
-    total += symbolMap[character] || 0
-  })
+  }
   return total
 }
-
-export { romanToInt }
