@@ -1,3 +1,7 @@
+/** My solution
+ * @speed 155 ms, faster than 25.31%
+ * @memory 41.3 MB, less than 86.98%
+ */
 const removeDuplicates = (nums: number[]): number => {
   let position = 0
   const uniquePositionMap: Record<number, number> = {}
@@ -8,9 +12,8 @@ const removeDuplicates = (nums: number[]): number => {
       position++
     }
   }
-  nums.splice(position, nums.length - 1)
 
-  return nums.length
+  return position
 }
 
 export { removeDuplicates }
