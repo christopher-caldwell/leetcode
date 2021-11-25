@@ -31,3 +31,5 @@ const romanToInt = (s: string): number => {
   }
   return total
 }
+
+export { romanToInt }
