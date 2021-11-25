@@ -18,7 +18,6 @@ interface TestInput {
 }
 const runTest = ({ input, expectation }: TestInput): void => {
   const result = removeDuplicates(input)
-  console.log('input', input)
   expect(result).toBe(expectation.length)
   for (let i = 0; i < result; i++) {
     expect(input[i]).toBe(expectation[i])
